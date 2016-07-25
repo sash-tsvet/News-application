@@ -13,6 +13,10 @@
 		A81D1CE11D462DF3003BC6C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A81D1CDF1D462DF3003BC6C0 /* Main.storyboard */; };
 		A81D1CE31D462DF3003BC6C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A81D1CE21D462DF3003BC6C0 /* Assets.xcassets */; };
 		A81D1CE61D462DF3003BC6C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A81D1CE41D462DF3003BC6C0 /* LaunchScreen.storyboard */; };
+		A81D1CEF1D463423003BC6C0 /* ViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1CEE1D463423003BC6C0 /* ViewControllerDataSource.m */; };
+		A81D1CF21D46365A003BC6C0 /* ViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1CF11D46365A003BC6C0 /* ViewControllerDelegate.m */; };
+		A81D1CF51D4647E4003BC6C0 /* ViewControllerLabeled.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1CF41D4647E4003BC6C0 /* ViewControllerLabeled.m */; };
+		A81D1CF71D466178003BC6C0 /* Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = A81D1CF61D466178003BC6C0 /* Data.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,13 @@
 		A81D1CE21D462DF3003BC6C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A81D1CE51D462DF3003BC6C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A81D1CE71D462DF3003BC6C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A81D1CED1D463423003BC6C0 /* ViewControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDataSource.h; sourceTree = "<group>"; };
+		A81D1CEE1D463423003BC6C0 /* ViewControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDataSource.m; sourceTree = "<group>"; };
+		A81D1CF01D46365A003BC6C0 /* ViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerDelegate.h; sourceTree = "<group>"; };
+		A81D1CF11D46365A003BC6C0 /* ViewControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDelegate.m; sourceTree = "<group>"; };
+		A81D1CF31D4647E4003BC6C0 /* ViewControllerLabeled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerLabeled.h; sourceTree = "<group>"; };
+		A81D1CF41D4647E4003BC6C0 /* ViewControllerLabeled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLabeled.m; sourceTree = "<group>"; };
+		A81D1CF61D466178003BC6C0 /* Data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Data.xml; path = ../../../Downloads/Data.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +73,13 @@
 				A81D1CDA1D462DF3003BC6C0 /* AppDelegate.m */,
 				A81D1CDC1D462DF3003BC6C0 /* ViewController.h */,
 				A81D1CDD1D462DF3003BC6C0 /* ViewController.m */,
+				A81D1CF61D466178003BC6C0 /* Data.xml */,
+				A81D1CED1D463423003BC6C0 /* ViewControllerDataSource.h */,
+				A81D1CEE1D463423003BC6C0 /* ViewControllerDataSource.m */,
+				A81D1CF01D46365A003BC6C0 /* ViewControllerDelegate.h */,
+				A81D1CF11D46365A003BC6C0 /* ViewControllerDelegate.m */,
+				A81D1CF31D4647E4003BC6C0 /* ViewControllerLabeled.h */,
+				A81D1CF41D4647E4003BC6C0 /* ViewControllerLabeled.m */,
 				A81D1CDF1D462DF3003BC6C0 /* Main.storyboard */,
 				A81D1CE21D462DF3003BC6C0 /* Assets.xcassets */,
 				A81D1CE41D462DF3003BC6C0 /* LaunchScreen.storyboard */,
@@ -137,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A81D1CE61D462DF3003BC6C0 /* LaunchScreen.storyboard in Resources */,
+				A81D1CF71D466178003BC6C0 /* Data.xml in Resources */,
 				A81D1CE31D462DF3003BC6C0 /* Assets.xcassets in Resources */,
 				A81D1CE11D462DF3003BC6C0 /* Main.storyboard in Resources */,
 			);
@@ -150,8 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A81D1CDE1D462DF3003BC6C0 /* ViewController.m in Sources */,
+				A81D1CF21D46365A003BC6C0 /* ViewControllerDelegate.m in Sources */,
+				A81D1CF51D4647E4003BC6C0 /* ViewControllerLabeled.m in Sources */,
 				A81D1CDB1D462DF3003BC6C0 /* AppDelegate.m in Sources */,
 				A81D1CD81D462DF3003BC6C0 /* main.m in Sources */,
+				A81D1CEF1D463423003BC6C0 /* ViewControllerDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
