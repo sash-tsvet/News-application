@@ -16,7 +16,10 @@
 		A81D1CEF1D463423003BC6C0 /* ViewControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1CEE1D463423003BC6C0 /* ViewControllerDataSource.m */; };
 		A81D1CF21D46365A003BC6C0 /* ViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1CF11D46365A003BC6C0 /* ViewControllerDelegate.m */; };
 		A81D1CF51D4647E4003BC6C0 /* ViewControllerLabeled.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1CF41D4647E4003BC6C0 /* ViewControllerLabeled.m */; };
-		A81D1CF71D466178003BC6C0 /* Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = A81D1CF61D466178003BC6C0 /* Data.xml */; };
+		A81D1CFA1D466AE1003BC6C0 /* Article.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1CF91D466AE1003BC6C0 /* Article.m */; };
+		A81D1CFC1D466BC9003BC6C0 /* lenta.xml in Resources */ = {isa = PBXBuildFile; fileRef = A81D1CFB1D466BC9003BC6C0 /* lenta.xml */; };
+		A81D1CFF1D466E59003BC6C0 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1CFE1D466E59003BC6C0 /* Parser.m */; };
+		A81D1D021D47CD8F003BC6C0 /* ViewControllerArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1D011D47CD8F003BC6C0 /* ViewControllerArticle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +39,13 @@
 		A81D1CF11D46365A003BC6C0 /* ViewControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerDelegate.m; sourceTree = "<group>"; };
 		A81D1CF31D4647E4003BC6C0 /* ViewControllerLabeled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerLabeled.h; sourceTree = "<group>"; };
 		A81D1CF41D4647E4003BC6C0 /* ViewControllerLabeled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLabeled.m; sourceTree = "<group>"; };
-		A81D1CF61D466178003BC6C0 /* Data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Data.xml; path = ../../../Downloads/Data.xml; sourceTree = "<group>"; };
+		A81D1CF81D466AE1003BC6C0 /* Article.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Article.h; sourceTree = "<group>"; };
+		A81D1CF91D466AE1003BC6C0 /* Article.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Article.m; sourceTree = "<group>"; };
+		A81D1CFB1D466BC9003BC6C0 /* lenta.xml */ = {isa = PBXFileReference; fileEncoding = 11; lastKnownFileType = text.xml; name = lenta.xml; path = ../../../Downloads/lenta.xml; sourceTree = "<group>"; };
+		A81D1CFD1D466E59003BC6C0 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		A81D1CFE1D466E59003BC6C0 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		A81D1D001D47CD8F003BC6C0 /* ViewControllerArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerArticle.h; sourceTree = "<group>"; };
+		A81D1D011D47CD8F003BC6C0 /* ViewControllerArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerArticle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,13 +82,19 @@
 				A81D1CDA1D462DF3003BC6C0 /* AppDelegate.m */,
 				A81D1CDC1D462DF3003BC6C0 /* ViewController.h */,
 				A81D1CDD1D462DF3003BC6C0 /* ViewController.m */,
-				A81D1CF61D466178003BC6C0 /* Data.xml */,
+				A81D1CF81D466AE1003BC6C0 /* Article.h */,
+				A81D1CF91D466AE1003BC6C0 /* Article.m */,
+				A81D1CFD1D466E59003BC6C0 /* Parser.h */,
+				A81D1CFE1D466E59003BC6C0 /* Parser.m */,
 				A81D1CED1D463423003BC6C0 /* ViewControllerDataSource.h */,
 				A81D1CEE1D463423003BC6C0 /* ViewControllerDataSource.m */,
+				A81D1D001D47CD8F003BC6C0 /* ViewControllerArticle.h */,
+				A81D1D011D47CD8F003BC6C0 /* ViewControllerArticle.m */,
 				A81D1CF01D46365A003BC6C0 /* ViewControllerDelegate.h */,
 				A81D1CF11D46365A003BC6C0 /* ViewControllerDelegate.m */,
 				A81D1CF31D4647E4003BC6C0 /* ViewControllerLabeled.h */,
 				A81D1CF41D4647E4003BC6C0 /* ViewControllerLabeled.m */,
+				A81D1CFB1D466BC9003BC6C0 /* lenta.xml */,
 				A81D1CDF1D462DF3003BC6C0 /* Main.storyboard */,
 				A81D1CE21D462DF3003BC6C0 /* Assets.xcassets */,
 				A81D1CE41D462DF3003BC6C0 /* LaunchScreen.storyboard */,
@@ -154,8 +169,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81D1CFC1D466BC9003BC6C0 /* lenta.xml in Resources */,
 				A81D1CE61D462DF3003BC6C0 /* LaunchScreen.storyboard in Resources */,
-				A81D1CF71D466178003BC6C0 /* Data.xml in Resources */,
 				A81D1CE31D462DF3003BC6C0 /* Assets.xcassets in Resources */,
 				A81D1CE11D462DF3003BC6C0 /* Main.storyboard in Resources */,
 			);
@@ -168,9 +183,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81D1CFF1D466E59003BC6C0 /* Parser.m in Sources */,
 				A81D1CDE1D462DF3003BC6C0 /* ViewController.m in Sources */,
 				A81D1CF21D46365A003BC6C0 /* ViewControllerDelegate.m in Sources */,
+				A81D1CFA1D466AE1003BC6C0 /* Article.m in Sources */,
 				A81D1CF51D4647E4003BC6C0 /* ViewControllerLabeled.m in Sources */,
+				A81D1D021D47CD8F003BC6C0 /* ViewControllerArticle.m in Sources */,
 				A81D1CDB1D462DF3003BC6C0 /* AppDelegate.m in Sources */,
 				A81D1CD81D462DF3003BC6C0 /* main.m in Sources */,
 				A81D1CEF1D463423003BC6C0 /* ViewControllerDataSource.m in Sources */,

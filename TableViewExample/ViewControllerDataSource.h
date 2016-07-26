@@ -10,4 +10,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewControllerDataSource : NSObject <UITableViewDataSource>
+
+@property NSMutableArray* articles;
+
+-(void) startParsing;
+
 @end

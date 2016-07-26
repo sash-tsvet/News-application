@@ -34,6 +34,8 @@
 }
 
 -(void)viewDidLoad{
+    [super viewDidLoad];
+
     _label = [[UILabel alloc] init];
     _label.text = _labeltext;
     _label.textAlignment = NSTextAlignmentCenter;
