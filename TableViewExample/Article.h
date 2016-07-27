@@ -6,7 +6,7 @@
 //  Copyright © 2016 Alexandra. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Article : NSObject
 
@@ -14,6 +14,8 @@
 @property  (nonatomic, strong) NSString *title;
 @property  (nonatomic, strong) NSString *pubDate;
 @property  (nonatomic, strong) NSString *shortVersion;
-@property  (nonatomic, strong) NSString *picture;
+@property  (nonatomic, strong) NSString *pictureUrl;
+@property  (nonatomic, strong) UIImage *pictureBig;
+@property  (nonatomic, strong) UIImage *pictureSmall;
 
 @end

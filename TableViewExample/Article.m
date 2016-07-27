@@ -19,7 +19,7 @@
     else if ([key isEqualToString: @"title"]) _title = value;
     else if ([key isEqualToString: @"link"]) _link = value;
     else if ([key isEqualToString: @"pubDate"]) _pubDate = value;
-    else if ([key isEqualToString: @"enclosure url"]) _picture = value;
+    //else if ([key isEqualToString: @"enclosure"]) _picture = value;
 }
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
     return;

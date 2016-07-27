@@ -26,7 +26,7 @@
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.frame];
     _tableView.rowHeight = UITableViewAutomaticDimension;
-    _tableView.estimatedRowHeight = 140;
+    _tableView.estimatedRowHeight = 500;
     [self.view addSubview:self.tableView];
     
     _dataSource = [ViewControllerDataSource new];

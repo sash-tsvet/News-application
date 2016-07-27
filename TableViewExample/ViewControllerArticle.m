@@ -11,6 +11,8 @@
 @interface ViewControllerArticle ()
 @property (nonatomic, strong) UILabel* labelTitle;
 @property (nonatomic, strong) UILabel* labelDescription;
+@property (nonatomic,strong)  UIImageView* imageView;
+@property (nonatomic,strong)  UIImage* image;
 @property (nonatomic, strong) Article* article;
 @end
 
@@ -34,18 +36,7 @@
     _labelTitle.backgroundColor = [UIColor lightGrayColor];
     
     [self.view addSubview:_labelTitle];
-    
-    CGRect screenSize = [[UIScreen mainScreen] bounds];
-    int screenWidth = screenSize.size.width;
-    int screenHeight = screenSize.size.height;
-//    
-//    CGSize maximumLabelSize = CGSizeMake(screenWidth/2,9999);
-//    
-//    CGSize expectedLabelSize = [_article.shortVersion sizeWithFont:_labelTitle.font
-//                                      constrainedToSize:maximumLabelSize
-//                                          lineBreakMode:_labelTitle.lineBreakMode];
-    
-    _labelTitle.frame = CGRectMake(screenWidth/2, 0, screenWidth/2, screenHeight/2/*expectedLabelSize.height*/);
+
     _labelTitle.numberOfLines = 0;
     
     _labelDescription = [[UILabel alloc] init];
@@ -54,7 +45,43 @@
     _labelDescription.backgroundColor = [UIColor grayColor];
     
     [self.view addSubview:_labelDescription];
-    _labelDescription.frame = CGRectMake(0, screenHeight/2, screenWidth, screenHeight/2/*expectedLabelSize.height*/);
+
     _labelDescription.numberOfLines = 0;
+    if (_article.pictureUrl) {
+        NSURL *url = [[NSURL alloc] initWithString: _article.pictureUrl];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        _image = [[UIImage alloc] initWithData:data];
+        _imageView = [[UIImageView alloc] initWithImage: _image];
+        [self.view addSubview:_imageView];
+    }
+
 }
+
+
+-(void)viewWillLayoutSubviews
+{
+    const int UPPER_INDENT = ([UIApplication sharedApplication].statusBarOrientation == UIDeviceOrientationPortrait)? 75 : 40;
+    const int INDENTS = 10;
+    
+    CGRect screenSize = [[UIScreen mainScreen] bounds];
+    int screenWidth = screenSize.size.width;
+    int screenHeight = screenSize.size.height;
+    
+    const int UPPER_HEIGHT = screenHeight/2;
+    const int DOWN_HEIGHT = screenHeight - UPPER_HEIGHT;
+    _labelTitle.frame = CGRectMake(screenWidth/2+INDENTS, UPPER_INDENT, screenWidth/2-2*INDENTS, UPPER_HEIGHT-UPPER_INDENT-INDENTS/*expectedLabelSize.height*/);
+    _labelDescription.frame = CGRectMake(INDENTS, UPPER_HEIGHT, screenWidth-2*INDENTS, DOWN_HEIGHT-INDENTS/*expectedLabelSize.height*/);
+    
+    CGSize imgSize = _image.size;
+    if (imgSize.width > screenWidth/2-INDENTS) {
+        imgSize.height = imgSize.height * (screenWidth/2-INDENTS)/imgSize.width;
+        imgSize.width = screenWidth/2-INDENTS;
+    }
+    if (imgSize.height > UPPER_HEIGHT-UPPER_INDENT-INDENTS) {
+        imgSize.width = imgSize.width * (UPPER_HEIGHT-UPPER_INDENT-INDENTS)/imgSize.height;
+        imgSize.height = UPPER_HEIGHT-UPPER_INDENT-INDENTS;
+    }
+    [_imageView setFrame:CGRectMake((screenWidth/2 - imgSize.width + INDENTS)/2, (UPPER_HEIGHT - imgSize.height + UPPER_INDENT)/2, imgSize.width, imgSize.height)];
+}
+
 @end

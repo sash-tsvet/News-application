@@ -20,6 +20,7 @@
 		A81D1CFC1D466BC9003BC6C0 /* lenta.xml in Resources */ = {isa = PBXBuildFile; fileRef = A81D1CFB1D466BC9003BC6C0 /* lenta.xml */; };
 		A81D1CFF1D466E59003BC6C0 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1CFE1D466E59003BC6C0 /* Parser.m */; };
 		A81D1D021D47CD8F003BC6C0 /* ViewControllerArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1D011D47CD8F003BC6C0 /* ViewControllerArticle.m */; };
+		A82F565E1D48C4BA002D5D9A /* rss.txt in Resources */ = {isa = PBXBuildFile; fileRef = A82F565D1D48C4BA002D5D9A /* rss.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		A81D1CFE1D466E59003BC6C0 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
 		A81D1D001D47CD8F003BC6C0 /* ViewControllerArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerArticle.h; sourceTree = "<group>"; };
 		A81D1D011D47CD8F003BC6C0 /* ViewControllerArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerArticle.m; sourceTree = "<group>"; };
+		A82F565D1D48C4BA002D5D9A /* rss.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rss.txt; path = ../../../Downloads/rss.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				A81D1CEE1D463423003BC6C0 /* ViewControllerDataSource.m */,
 				A81D1D001D47CD8F003BC6C0 /* ViewControllerArticle.h */,
 				A81D1D011D47CD8F003BC6C0 /* ViewControllerArticle.m */,
+				A82F565D1D48C4BA002D5D9A /* rss.txt */,
 				A81D1CF01D46365A003BC6C0 /* ViewControllerDelegate.h */,
 				A81D1CF11D46365A003BC6C0 /* ViewControllerDelegate.m */,
 				A81D1CF31D4647E4003BC6C0 /* ViewControllerLabeled.h */,
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A81D1CFC1D466BC9003BC6C0 /* lenta.xml in Resources */,
+				A82F565E1D48C4BA002D5D9A /* rss.txt in Resources */,
 				A81D1CE61D462DF3003BC6C0 /* LaunchScreen.storyboard in Resources */,
 				A81D1CE31D462DF3003BC6C0 /* Assets.xcassets in Resources */,
 				A81D1CE11D462DF3003BC6C0 /* Main.storyboard in Resources */,
@@ -342,6 +346,7 @@
 				A81D1CEC1D462DF3003BC6C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

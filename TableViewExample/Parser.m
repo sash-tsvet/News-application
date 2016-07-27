@@ -38,6 +38,14 @@
     
         //Initialize the book.
         _article = [[Article alloc] init];
+    if([elementName isEqualToString:@"enclosure"])
+    {
+        NSString *urlValue=[attributeDict valueForKey:@"url"];
+        _article.pictureUrl=urlValue;
+        urlValue = nil;
+        //NSString *urlValue=[attributeDict valueForKey:@"type"];
+        //NSString *urlValue=[attributeDict valueForKey:@"length"];
+    }
     NSLog(@"Processing Element: %@", elementName);
 }
 
@@ -79,6 +87,7 @@
         NSLog(@"Link: %@", article.link);
         NSLog(@"Date: %@", article.pubDate);
         NSLog(@"Description: %@", article.shortVersion);
+        NSLog(@"Picture: %@", article.pictureUrl);
         NSLog(@"***************************************\n");
     }
     
@@ -90,7 +99,7 @@
         //article.title = [article.title stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
         article.title =[[[article.title componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         article.pubDate = [[[article.pubDate componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        article.picture = [[[article.picture componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        article.pictureUrl = [[[article.pictureUrl componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         article.link = [[[article.link componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         article.shortVersion = [[[article.shortVersion componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
