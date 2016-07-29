@@ -11,8 +11,8 @@
 
 @interface ViewControllerDataSource : NSObject <UITableViewDataSource>
 
-@property NSMutableArray* articles;
+@property NSArray* articles;
 
--(void) startParsing;
+//-(void) startParsing;
 
 @end

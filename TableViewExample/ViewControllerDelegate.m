@@ -7,6 +7,7 @@
 //
 
 #import "ViewControllerDelegate.h"
+#include "MyCell.h"
 
 @implementation ViewControllerDelegate
 
@@ -18,6 +19,11 @@
         self.startNavigation((int)indexPath.row);
     }
     
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return PICTURE_SIZE+2*INDENTS;
 }
 
 @end

@@ -9,6 +9,8 @@
 #import "Parser.h"
 #import "Article.h"
 
+#import "NetworkManager.h"
+
 @interface Parser()
 
 @property (nonatomic, strong) Article* article;
@@ -19,10 +21,8 @@
 
 @implementation Parser
 
--(instancetype)initWithArticles: (NSMutableArray*)articles {
-    self = [super init];
-    _articles = articles;
-    return self;
+-(NSArray *)articles {
+    return [_articles copy];
 }
 
 -(void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict
@@ -30,7 +30,7 @@
     if([elementName isEqualToString:@"channel"]) {
         //Initialize the array.
         if (!_articles) {
-            NSLog(@"NO INPUT ARRAY!");
+            _articles = [[NSMutableArray alloc] init];
         }
         
     }
@@ -98,7 +98,6 @@
     for (Article* article in _articles) {
         //article.title = [article.title stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
         article.title =[[[article.title componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        article.pubDate = [[[article.pubDate componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         article.pictureUrl = [[[article.pictureUrl componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         article.link = [[[article.link componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         article.shortVersion = [[[article.shortVersion componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];

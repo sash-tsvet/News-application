@@ -21,6 +21,9 @@
 		A81D1CFF1D466E59003BC6C0 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1CFE1D466E59003BC6C0 /* Parser.m */; };
 		A81D1D021D47CD8F003BC6C0 /* ViewControllerArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = A81D1D011D47CD8F003BC6C0 /* ViewControllerArticle.m */; };
 		A82F565E1D48C4BA002D5D9A /* rss.txt in Resources */ = {isa = PBXBuildFile; fileRef = A82F565D1D48C4BA002D5D9A /* rss.txt */; };
+		A82F56611D4A2870002D5D9A /* NetworkManager_.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F56601D4A2870002D5D9A /* NetworkManager_.m */; };
+		A82F56651D4A3551002D5D9A /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F56641D4A3551002D5D9A /* NetworkManager.m */; };
+		A82F56681D4B896A002D5D9A /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F56671D4B896A002D5D9A /* MyCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,12 @@
 		A81D1D001D47CD8F003BC6C0 /* ViewControllerArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerArticle.h; sourceTree = "<group>"; };
 		A81D1D011D47CD8F003BC6C0 /* ViewControllerArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerArticle.m; sourceTree = "<group>"; };
 		A82F565D1D48C4BA002D5D9A /* rss.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = rss.txt; path = ../../../Downloads/rss.txt; sourceTree = "<group>"; };
+		A82F565F1D4A2870002D5D9A /* NetworkManager_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager_.h; sourceTree = "<group>"; };
+		A82F56601D4A2870002D5D9A /* NetworkManager_.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager_.m; sourceTree = "<group>"; };
+		A82F56631D4A3551002D5D9A /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		A82F56641D4A3551002D5D9A /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		A82F56661D4B896A002D5D9A /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
+		A82F56671D4B896A002D5D9A /* MyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +93,16 @@
 				A81D1CDA1D462DF3003BC6C0 /* AppDelegate.m */,
 				A81D1CDC1D462DF3003BC6C0 /* ViewController.h */,
 				A81D1CDD1D462DF3003BC6C0 /* ViewController.m */,
+				A82F56661D4B896A002D5D9A /* MyCell.h */,
+				A82F56671D4B896A002D5D9A /* MyCell.m */,
 				A81D1CF81D466AE1003BC6C0 /* Article.h */,
 				A81D1CF91D466AE1003BC6C0 /* Article.m */,
 				A81D1CFD1D466E59003BC6C0 /* Parser.h */,
 				A81D1CFE1D466E59003BC6C0 /* Parser.m */,
+				A82F565F1D4A2870002D5D9A /* NetworkManager_.h */,
+				A82F56601D4A2870002D5D9A /* NetworkManager_.m */,
+				A82F56631D4A3551002D5D9A /* NetworkManager.h */,
+				A82F56641D4A3551002D5D9A /* NetworkManager.m */,
 				A81D1CED1D463423003BC6C0 /* ViewControllerDataSource.h */,
 				A81D1CEE1D463423003BC6C0 /* ViewControllerDataSource.m */,
 				A81D1D001D47CD8F003BC6C0 /* ViewControllerArticle.h */,
@@ -190,11 +205,14 @@
 				A81D1CFF1D466E59003BC6C0 /* Parser.m in Sources */,
 				A81D1CDE1D462DF3003BC6C0 /* ViewController.m in Sources */,
 				A81D1CF21D46365A003BC6C0 /* ViewControllerDelegate.m in Sources */,
+				A82F56651D4A3551002D5D9A /* NetworkManager.m in Sources */,
 				A81D1CFA1D466AE1003BC6C0 /* Article.m in Sources */,
+				A82F56681D4B896A002D5D9A /* MyCell.m in Sources */,
 				A81D1CF51D4647E4003BC6C0 /* ViewControllerLabeled.m in Sources */,
 				A81D1D021D47CD8F003BC6C0 /* ViewControllerArticle.m in Sources */,
 				A81D1CDB1D462DF3003BC6C0 /* AppDelegate.m in Sources */,
 				A81D1CD81D462DF3003BC6C0 /* main.m in Sources */,
+				A82F56611D4A2870002D5D9A /* NetworkManager_.m in Sources */,
 				A81D1CEF1D463423003BC6C0 /* ViewControllerDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

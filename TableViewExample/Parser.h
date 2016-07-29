@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface Parser : NSObject <NSXMLParserDelegate>
--(instancetype)initWithArticles: (NSMutableArray*)articles;
 -(void)debugPrint;
 -(void)cleanLineBreaks;
+-(NSArray *)articles;
 @end
