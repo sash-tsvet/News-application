@@ -24,6 +24,8 @@
 		A82F56611D4A2870002D5D9A /* NetworkManager_.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F56601D4A2870002D5D9A /* NetworkManager_.m */; };
 		A82F56651D4A3551002D5D9A /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F56641D4A3551002D5D9A /* NetworkManager.m */; };
 		A82F56681D4B896A002D5D9A /* MyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F56671D4B896A002D5D9A /* MyCell.m */; };
+		A82F566D1D4F67D4002D5D9A /* ViewControllerSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F566C1D4F67D4002D5D9A /* ViewControllerSettings.m */; };
+		A82F56701D4F9826002D5D9A /* Source.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F566F1D4F9826002D5D9A /* Source.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,10 @@
 		A82F56641D4A3551002D5D9A /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		A82F56661D4B896A002D5D9A /* MyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCell.h; sourceTree = "<group>"; };
 		A82F56671D4B896A002D5D9A /* MyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCell.m; sourceTree = "<group>"; };
+		A82F566B1D4F67D4002D5D9A /* ViewControllerSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerSettings.h; sourceTree = "<group>"; };
+		A82F566C1D4F67D4002D5D9A /* ViewControllerSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerSettings.m; sourceTree = "<group>"; };
+		A82F566E1D4F9826002D5D9A /* Source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Source.h; sourceTree = "<group>"; };
+		A82F566F1D4F9826002D5D9A /* Source.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Source.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,10 @@
 				A81D1CDA1D462DF3003BC6C0 /* AppDelegate.m */,
 				A81D1CDC1D462DF3003BC6C0 /* ViewController.h */,
 				A81D1CDD1D462DF3003BC6C0 /* ViewController.m */,
+				A82F566E1D4F9826002D5D9A /* Source.h */,
+				A82F566F1D4F9826002D5D9A /* Source.m */,
+				A82F566B1D4F67D4002D5D9A /* ViewControllerSettings.h */,
+				A82F566C1D4F67D4002D5D9A /* ViewControllerSettings.m */,
 				A82F56661D4B896A002D5D9A /* MyCell.h */,
 				A82F56671D4B896A002D5D9A /* MyCell.m */,
 				A81D1CF81D466AE1003BC6C0 /* Article.h */,
@@ -203,6 +213,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A81D1CFF1D466E59003BC6C0 /* Parser.m in Sources */,
+				A82F566D1D4F67D4002D5D9A /* ViewControllerSettings.m in Sources */,
+				A82F56701D4F9826002D5D9A /* Source.m in Sources */,
 				A81D1CDE1D462DF3003BC6C0 /* ViewController.m in Sources */,
 				A81D1CF21D46365A003BC6C0 /* ViewControllerDelegate.m in Sources */,
 				A82F56651D4A3551002D5D9A /* NetworkManager.m in Sources */,

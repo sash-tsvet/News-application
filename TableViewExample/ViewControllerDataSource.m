@@ -35,12 +35,12 @@
 
     
         static NSString *CellIdentifier = @"Cell";
-    
-        //поиск ячейки
+
         MyCell *mycell = (MyCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (!mycell) {
             mycell = [[MyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
+        [mycell clean];
     
         mycell.title.text = article.title;
         mycell.date.text = datestr;

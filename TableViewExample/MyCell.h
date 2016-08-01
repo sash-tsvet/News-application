@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-static const NSInteger PICTURE_SIZE = 75;
+static const NSInteger PICTURE_SIZE = 100;
 static const int INDENTS = 10;
 
 @interface MyCell : UITableViewCell
 
 -(void)setPhoto:(UIImage*) photo;
+-(void)clean;
 @property (nonatomic, retain) UILabel *title;
 @property (nonatomic, retain) UILabel *date;
 

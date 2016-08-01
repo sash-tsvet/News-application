@@ -7,6 +7,10 @@
 //
 
 #import "NetworkManager.h"
+#import "Parser.h"
+#import "Article.h"
+#import "Source.h"
+
 @interface NetworkManager()
     @property (atomic, strong) NSMutableArray* articles;
 @end
@@ -43,48 +47,63 @@
     });
 }
 - (void)getArticlesWithSuccess:(void (^)(NSArray* articles))successBlock
-        withFailure:(URLSessionFailureBlock)failureBlock{
+        withFailure:(URLSessionFailureBlock)failureBlock withSources: (NSArray*)sources{
+    
+    
     
     _articles = [[NSMutableArray alloc] initWithArray:@[]];;
     __block NSInteger success = 0;
     // 1
     dispatch_group_t downloadGroup = dispatch_group_create();
     
-    for (NSInteger i = 0; i < 2; i++) {
-        NSURL *url;
-        switch (i) {
-            case 1:
-                url = [[NSURL alloc] initWithString:@"https://lenta.ru/rss"];
-                break;
-            case 0:
-                url = [[NSURL alloc] initWithString:@"https://www.gazeta.ru/export/rss/lenta.xml"];
-                break;
-            default:
-                break;
-        }
+    for (NSInteger i = 0; (i < sources.count); i++) {
+        if ([sources[i] isKindOfClass:[Source class]]) {
+        Source *source = sources[i];
+        if (source.isOn){
+            NSURL *url=[[NSURL alloc] initWithString:source.link];
+//            switch (i) {
+//                case 0:
+//                    url = [[NSURL alloc] initWithString:@"https://lenta.ru/rss"];
+//                    break;
+//                case 1:
+//                    url = [[NSURL alloc] initWithString:@"https://www.gazeta.ru/export/rss/lenta.xml"];
+//                    break;
+//                default:
+//                    break;
+//            }
         
-        dispatch_group_enter(downloadGroup); // 2
+            dispatch_group_enter(downloadGroup); // 2
         
 
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-            Parser *parser = [[Parser alloc] init];
-            NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                Parser *parser = [[Parser alloc] init];
+                NSXMLParser *xmlparser = [[NSXMLParser alloc] initWithContentsOfURL:url];
             
             
-            [xmlparser setDelegate:parser];
-            if([xmlparser parse]){
-                success++;
-                [parser cleanLineBreaks];
-                [self.articles addObjectsFromArray:[parser articles]];
+                [xmlparser setDelegate:parser];
+                if([xmlparser parse]){
+                    success++;
+                    [parser cleanLineBreaks];
+                    [self.articles addObjectsFromArray:[parser articles]];
                 
-                //[parser debugPrint];
-                //sleep(25);
+                    //[parser debugPrint];
+                    //sleep(25);
                  }
             
-            dispatch_group_leave(downloadGroup);
-        });
+                dispatch_group_leave(downloadGroup);
+            });
+        }
+        }
     }
        dispatch_group_notify(downloadGroup, dispatch_get_main_queue(), ^{ // 4
+           BOOL hasElements = false;
+           for(NSInteger i = 0; i<[sources count]; i++){
+               if ([sources[i] isKindOfClass:[Source class]]) {
+                   Source *source = sources[i];
+                   hasElements = hasElements || source.isOn;
+               }
+           }
+           success = success || !hasElements;
            if(success){
                NSLog(@"No Errors");
                NSLog(@"SUCCESS = %ld", (long)success);
@@ -97,6 +116,7 @@
                failureBlock((NSError*)NSURLErrorDomain);
            }
        });
+    
 }
 
 -(void)sortByDate{

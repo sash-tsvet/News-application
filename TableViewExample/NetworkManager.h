@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "Parser.h"
-#import "Article.h"
+
 
 typedef void (^URLSessionFailureBlock)(NSError *error);
 @interface NetworkManager : NSObject
@@ -19,7 +18,8 @@ typedef void (^URLSessionFailureBlock)(NSError *error);
                          withSuccess:(void (^)(UIImage * image))successBlock
                              withFailure:(URLSessionFailureBlock)failureBlock;
 - (void)getArticlesWithSuccess:(void (^)(NSArray* articles))successBlock
-                         withFailure:(URLSessionFailureBlock)failureBlock;
+                         withFailure:(URLSessionFailureBlock)failureBlock
+                         withSources: (NSArray*)sources;
 
 
 @end

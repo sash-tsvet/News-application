@@ -11,18 +11,44 @@
 #import "ViewControllerDelegate.h"
 #import "ViewControllerLabeled.h"
 #import "ViewControllerArticle.h"
+#import "ViewControllerSettings.h"
+#import "Source.h"
 
 @interface ViewController () 
 
 @property ViewControllerDataSource *dataSource;
 @property ViewControllerDelegate *delegate;
+@property (nonatomic, strong) UILabel* errorLabel;
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 
 @property (nonatomic, copy) void (^successBlock)(NSArray* articles);
 @property (nonatomic, copy) void (^errorBlock)(NSError* error);
+
+@property NSMutableArray* sources;
 @end
 
 @implementation ViewController
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _sources = [[NSMutableArray alloc] init];
+        Source* added = [[Source alloc] init];
+        added.isOn = true;
+        added.name = @"Lenta";
+        added.link = @"https://lenta.ru/rss";
+        [_sources addObject:added];
+        
+        added = [[Source alloc] init];
+        added.isOn = true;
+        added.name = @"Gazeta";
+        added.link = @"https://www.gazeta.ru/export/rss/lenta.xml";
+        [_sources addObject:added];
+
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,33 +87,44 @@
                             action:@selector(getLatestValues)
                   forControlEvents:UIControlEventValueChanged];
     
+    self.title = @"Loading News";
+    
     
     __weak typeof(self) weakSelf = self;
     _successBlock =^void( NSArray* articles) {
         weakSelf.dataSource.articles = articles;
         weakSelf.tableView.separatorStyle =  UITableViewCellSeparatorStyleSingleLine;
         weakSelf.tableView.scrollEnabled = YES;
+        weakSelf.title = @"Lenta";
         [weakSelf.activityView removeFromSuperview];
+        [weakSelf.errorLabel removeFromSuperview];
         [weakSelf.tableView reloadData];
         [weakSelf.refreshControl endRefreshing];
     };
     
     _errorBlock = ^(NSError *error){
-        UILabel* _label = [[UILabel alloc] init];
-        _label.text = @"ERROR - NO ARTICLES!\nCheck your internet connection!";
-        _label.numberOfLines = 0;
-        _label.textAlignment = NSTextAlignmentCenter;
-        _label.backgroundColor = [UIColor redColor];
+        weakSelf.errorLabel = [[UILabel alloc] init];
+        weakSelf.errorLabel.text = @"ERROR - NO ARTICLES!\nCheck your internet connection!";
+        weakSelf.errorLabel.numberOfLines = 0;
+        weakSelf.errorLabel.textAlignment = NSTextAlignmentCenter;
+        weakSelf.errorLabel.backgroundColor = [UIColor redColor];
         
-        [weakSelf.view addSubview:_label];
+        [weakSelf.view addSubview:weakSelf.errorLabel];
         
         CGRect screenSize = [[UIScreen mainScreen] bounds];
         int width = screenSize.size.width;
         int height = 100;
-        _label.frame = CGRectMake(0, screenSize.size.height/2 - height, width, height);
+        weakSelf.errorLabel.frame = CGRectMake(0, screenSize.size.height/2 - height, width, height);
         
     };
     
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithTitle:@"Настройки"
+                                              style:UIBarButtonItemStylePlain
+                                              target:self
+                                              action:@selector(showSettings)];
+
     [self getLatestValues];
 
     [_delegate setStartNavigation:^ (int num){
@@ -101,6 +138,16 @@
     [self.tableView reloadData];
 }
 
+-(void)showSettings{
+    ViewControllerSettings *vc = [[ViewControllerSettings alloc] initWithSources:[_sources copy]];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    [vc setReturnSettings:^(NSArray* sources){
+        _sources = [sources copy];
+        [self.view addSubview:_activityView];
+        [self getLatestValues];
+    }];
+}
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
@@ -121,7 +168,7 @@
 
 -(void)getLatestValues{
     NetworkManager* NM = [NetworkManager sharedInstance];
-    [NM getArticlesWithSuccess:_successBlock withFailure:_errorBlock];
+    [NM getArticlesWithSuccess:_successBlock withFailure:_errorBlock withSources: [_sources copy]];
     
     
 }

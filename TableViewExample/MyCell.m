@@ -33,6 +33,11 @@
     }
     return self;
 }
+-(void)clean{
+    _title.text = nil;
+    _date.text = nil;
+    _picture = nil;
+}
 
 -(void)layoutSubviews
 {
@@ -49,8 +54,8 @@
     
     
     /////////////////////////////
-    const int UPPER_INDENT = ([UIApplication sharedApplication].statusBarOrientation == UIDeviceOrientationPortrait)? 10 : 10;
-    const int INDENTS = 10;
+//    const int UPPER_INDENT = ([UIApplication sharedApplication].statusBarOrientation == UIDeviceOrientationPortrait)? 10 : 10;
+//    const int INDENTS = 10;
     
 
     

@@ -14,6 +14,7 @@
 @property (nonatomic,strong)  UIImageView* imageView;
 @property (nonatomic,strong)  UIImage* image;
 @property (nonatomic, strong) Article* article;
+@property (nonatomic, strong) UIScrollView* scrollView;
 @end
 
 @implementation ViewControllerArticle
@@ -29,7 +30,20 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
+    _scrollView = [[UIScrollView alloc] init];
+    //_scrollView.backgroundColor = [UIColor redColor];
+    _scrollView.scrollEnabled = YES;
+    _scrollView.pagingEnabled = YES;
+    _scrollView.showsVerticalScrollIndicator = YES;
+    _scrollView.showsHorizontalScrollIndicator = YES;
+    [self.view addSubview:_scrollView];
 
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd MMM yyyy HH:mm"];
+    
+    NSString* datestr = [dateFormat stringFromDate:_article.pubDate];
+    self.title = datestr;
     _labelTitle = [[UILabel alloc] init];
     _labelTitle.text = _article.title;
     _labelTitle.textAlignment = NSTextAlignmentCenter;
@@ -38,7 +52,8 @@
     _labelTitle.adjustsFontSizeToFitWidth = YES;
    // _labelTitle.contentScaleFactor = 0.2;
     
-    [self.view addSubview:_labelTitle];
+    [_scrollView addSubview:_labelTitle];
+    //[self.view addSubview:_labelTitle];
 
     
     
@@ -48,7 +63,8 @@
     _labelDescription.backgroundColor = [UIColor whiteColor];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:_labelDescription];
+    [_scrollView addSubview:_labelDescription];
+    //[self.view addSubview:_labelDescription];
 
     _labelDescription.numberOfLines = 0;
     if (!_article.pictureBig && _article.pictureUrl) {
@@ -58,17 +74,25 @@
         _article.pictureBig = _image;
     }
     else
-        _image=_article.pictureBig;
-        _imageView = [[UIImageView alloc] initWithImage: _image];
-        [self.view addSubview:_imageView];
+    _image=_article.pictureBig;
+    _imageView = [[UIImageView alloc] initWithImage: _image];
+    [_scrollView addSubview:_imageView];
+    //[self.view addSubview:_imageView];
+    
+
 
 }
 
 
 -(void)viewWillLayoutSubviews
 {
+    
     const int UPPER_INDENT = ([UIApplication sharedApplication].statusBarOrientation == UIDeviceOrientationPortrait)? 10 : 10;
     const int INDENTS = 10;
+    _scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height+UPPER_INDENT);
+    _scrollView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    
+
 
     CGRect screenSize = self.view.bounds;
     int screenWidth = screenSize.size.width;
@@ -95,6 +119,7 @@
     _labelTitle.frame = CGRectMake(screenWidth/2+INDENTS, UPPER_INDENT, screenWidth/2-2*INDENTS, UPPER_HEIGHT-UPPER_INDENT-INDENTS);
     [_imageView setFrame:CGRectMake((screenWidth/2 - imgSize.width + INDENTS)/2, (UPPER_HEIGHT-UPPER_INDENT-INDENTS - imgSize.height)/2 + UPPER_INDENT, imgSize.width, imgSize.height)];
     _labelDescription.frame = CGRectMake(INDENTS, UPPER_HEIGHT, screenWidth-2*INDENTS, DOWN_HEIGHT-INDENTS);
+    [_labelDescription sizeToFit];
     
 }
 
